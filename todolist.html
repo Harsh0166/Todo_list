@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        header{
+            width: 25rem;
+            height: 80px;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            /* border: 2px solid; */
+            padding: 10px;
+            background-color: brown;
+            color: wheat;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #frm{
+            width: 25rem;
+            height: 4rem;
+            border: 2px solid;
+            /* display: flex;
+            justify-content: center; */
+            background-color: wheat;
+            color: brown;
+        }
+        input{
+            /* display: flex; */
+            height: 40px;
+            padding: 5px;
+            font-size: 20px;
+            margin: 10px 0 ;
+            /* flex-direction: row; */
+            /* background-color: wheat; */
+        }
+        #data{
+            width:14rem;
+            background-color: wheat;
+            color: brown;
+            border:3px solid brown
+        }
+        #btn{
+            width: 4rem;
+            background-color: brown;
+            color: wheat;
+
+        }
+        #datatext{
+            width: 25rem;
+            height: 36rem;
+            border: 2px solid;
+            padding: 10px;
+            background-color: wheat;
+            color: wheat;
+            overflow-y: scroll;
+        }
+
+        #taskbox{
+            height: 40px;
+            font-size: 20px;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: brown;
+            color: wheat;
+            
+        }
+        #check{
+            margin: 0;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            
+        }
+       
+    </style>
+</head>
+<body>
+    <center> <header>
+        To Do List
+    </header>
+    <form id="frm">
+        <input type="text" placeholder="Enter Task" id="data">
+        <input type="submit" value="Add" id="btn">
+    </form>
+    <div id="datatext">
+        <p id="task"></p>
+    </div>
+    </center>
+    <script>
+        var form =document.getElementById("frm");
+        form.onsubmit=function(){
+            
+            var data = document.getElementById("data").value;
+            var task = document.getElementById("task");
+            
+            task.innerHTML += "<div id='taskbox'>"+ "<div id='click' ><input type='checkbox' id='check' onclick='check_box(this)'></div>"+"<div id='taskbar'>"+ data + "</div>"+ "<div id='cut' onclick='removedata(this)'>" + "<i class='fa-solid fa-xmark'></i>"+ "</div>"+"</div>";
+
+            var empty=document.getElementById("data").value="";
+            
+            return false;
+        }
+
+        function removedata(cutt){
+            cutt.parentElement.remove();
+        }
+        
+        function check_box(elem){
+            var taskcheck= document.getElementById("taskbar");
+            if(elem.checked){
+                taskcheck.style.textDecoration="line-through";
+                taskcheck.style.textDecorationColor="black";
+                taskcheck.style.textDecorationThickness="3px";
+            }
+            else{
+                taskcheck.style.textDecoration="none";
+
+            }
+                
+        }
+    </script>
+</body>
+</html>
