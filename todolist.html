@@ -118,14 +118,13 @@
         }
         
         function check_box(elem){
-            var taskcheck= document.getElementById("taskbar");
             if(elem.checked){
-                taskcheck.style.textDecoration="line-through";
-                taskcheck.style.textDecorationColor="black";
-                taskcheck.style.textDecorationThickness="3px";
+                elem.parentElement.parentElement.children[1].style.textDecoration="line-through";
+                elem.parentElement.parentElement.children[1].style.textDecorationColor="black";
+                elem.parentElement.parentElement.children[1].style.textDecorationThickness="3px";
             }
             else{
-                taskcheck.style.textDecoration="none";
+                elem.parentElement.parentElement.children[1].style.textDecoration="none";
 
             }
                 
